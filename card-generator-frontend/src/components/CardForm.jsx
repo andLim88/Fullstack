@@ -1,4 +1,3 @@
-// src/components/CardForm.jsx
 import { useState, useRef } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -27,14 +26,12 @@ const CardForm = ({ onSubmit, isGenerating }) => {
 
     if (file) {
       try {
-        // Validate the image
         const validationResult = await validateImage(file);
         if (!validationResult.isValid) {
           setImageError(validationResult.error);
           return;
         }
 
-        // Create preview
         const reader = new FileReader();
         reader.onload = () => {
           setPreviewImage(reader.result);
@@ -51,7 +48,6 @@ const CardForm = ({ onSubmit, isGenerating }) => {
     <div className="w-full max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
       <h2 className="text-2xl font-semibold mb-6">Gift Card</h2>
       
-      {/* Image Upload Section */}
       <div className="mb-6">
         <div className="flex flex-col items-center">
           {previewImage ? (
@@ -96,7 +92,6 @@ const CardForm = ({ onSubmit, isGenerating }) => {
         </div>
       </div>
 
-      {/* Form Section */}
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}

@@ -1,4 +1,3 @@
-// src/components/ImageUploader.jsx
 import { useRef } from 'react';
 
 const ImageUploader = ({ onImageSelect }) => {

@@ -1,7 +1,5 @@
-// src/utils/validation.js
 import * as Yup from 'yup';
 
-// Form validation schema
 export const cardValidationSchema = Yup.object().shape({
   recipientName: Yup.string()
     .min(2, 'Name must be at least 2 characters')
@@ -19,14 +17,11 @@ export const cardValidationSchema = Yup.object().shape({
     .required('Sender name is required'),
 });
 
-// Image validation
 export const validateImage = (file) => {
-  // Check if file exists
   if (!file) {
     return { isValid: false, error: 'No file selected' };
   }
 
-  // Check file type
   const validTypes = ['image/jpeg', 'image/png', 'image/gif'];
   if (!validTypes.includes(file.type)) {
     return { 
@@ -35,7 +30,6 @@ export const validateImage = (file) => {
     };
   }
 
-  // Check file size (max 5MB)
   const maxSize = 5 * 1024 * 1024; // 5MB in bytes
   if (file.size > maxSize) {
     return { 
@@ -44,7 +38,6 @@ export const validateImage = (file) => {
     };
   }
 
-  // Check image dimensions
   return new Promise((resolve) => {
     const img = new Image();
     img.onload = () => {
@@ -69,7 +62,6 @@ export const validateImage = (file) => {
   });
 };
 
-// Text validation helpers
 export const validateTextLength = (text, maxLength) => {
   return {
     isValid: text.length <= maxLength,

@@ -1,4 +1,3 @@
-// src/components/CardPreview.jsx
 import { useRef } from 'react';
 import { toPng } from 'html-to-image';
 

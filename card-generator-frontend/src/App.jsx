@@ -1,4 +1,3 @@
-// src/App.jsx
 import { useState } from 'react';
 import CardForm from './components/CardForm';
 import CardPreview from './components/CardPreview';

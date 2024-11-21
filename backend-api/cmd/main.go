@@ -8,10 +8,9 @@ import (
 )
 
 func main() {
-	// Initialize router
 	router := mux.NewRouter()
 
-	// Define routes
+
 	router.HandleFunc("/brands", GetBrands).Methods("GET")
 	router.HandleFunc("/brands", CreateBrand).Methods("POST")
 	router.HandleFunc("/vouchers", GetVouchers).Methods("GET")
@@ -20,7 +19,6 @@ func main() {
 	router.HandleFunc("/transactions", CreateTransaction).Methods("POST")
 	router.HandleFunc("/transactions/{id}", GetTransactionByID).Methods("GET")
 
-	// Start server
 	log.Println("Server starting on port 8080...")
 	log.Fatal(http.ListenAndServe(":8080", router))
 }
